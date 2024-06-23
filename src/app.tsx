@@ -36,39 +36,65 @@ export function App() {
               <Input type="text" />
             </div>
           </div>
-          <div>
-            <Label>Date of birth</Label>
-            <div className="grid grid-cols-3 gap-4">
-              <div>
-                <Select>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Month" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="00">00</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Select>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Day" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="00">00</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Select>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Year" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="0000">0000</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+
+          <div className="grid grid-cols-3 items-end gap-4">
+            <div>
+              <Label>Date of birth</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Month" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array(12)
+                    .fill(1)
+                    .map((_, index) => {
+                      const value = String(index + 1);
+                      return (
+                        <SelectItem key={String(index)} value={value}>
+                          {value}
+                        </SelectItem>
+                      );
+                    })}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Day" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array(31)
+                    .fill(1)
+                    .map((_, index) => {
+                      const value = String(index + 1);
+                      return (
+                        <SelectItem key={String(index)} value={value}>
+                          {value}
+                        </SelectItem>
+                      );
+                    })}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Year" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array(200)
+                    .fill(1)
+                    .map((_, index) => {
+                      const value = String(index + 1901);
+                      return (
+                        <SelectItem key={String(index)} value={value}>
+                          {value}
+                        </SelectItem>
+                      );
+                    })}
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
